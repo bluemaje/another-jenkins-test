@@ -7,19 +7,19 @@ node {
       sh "git clean -fdx"
     }
     stage('compile') {
-      echo "nothing to compile..."
+      sh "make build"
     }
     stage('test') {
-      sh "echo test"
+      sh "make test"
     }
     stage('package') {
-      sh "echo package"
+      sh "make package"
     }
     stage('publish') {
-      sh "echo publish"
+      sh "make publish"
     }
     stage('deploy') {
-      sh "echo deploy"
+      sh "echo deploy!!!!!!!!!"
     }
   } finally {
     stage('cleanup') {
