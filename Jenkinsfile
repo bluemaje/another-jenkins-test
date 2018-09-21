@@ -29,6 +29,12 @@ pipeline {
         sh "make build"
       }
     }
+    
+    stage('Colours?') {
+      steps {
+        sh "make help"
+      }
+    }
 
     stage('Tests') {
       parallel {
