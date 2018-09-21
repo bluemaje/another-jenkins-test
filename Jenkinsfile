@@ -16,6 +16,7 @@ pipeline {
         checkout scm
         sh "echo ${SOME_VAR}"
       }
+    }
 
     stage('prepare') {
       steps {
