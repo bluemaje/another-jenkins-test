@@ -1,5 +1,8 @@
-node {
+pipeline {
+  agent any
+ 
   options {
+    timeout(time: 5, unit: 'MINUTES')
     ansiColor('xterm')
   }
   
@@ -11,7 +14,6 @@ node {
     try {
       stage('checkout') {
         checkout scm
-        sh "echo \e[31mHello World\e[0m\n"
         sh "echo ${SOME_VAR}"
       }
       stage('prepare') {
