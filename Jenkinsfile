@@ -1,6 +1,4 @@
-node {
-  agent any
- 
+node { 
   options {
     timeout(time: 5, unit: 'MINUTES')
     ansiColor('xterm')
