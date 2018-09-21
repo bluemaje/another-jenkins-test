@@ -5,37 +5,56 @@ pipeline {
     timeout(time: 5, unit: 'MINUTES')
     ansiColor('xterm')
   }
-  
+
   environment {
     SOME_VAR = "hello"
   }
 
   stages {
     stage('checkout') {
-      checkout scm
-      sh "echo ${SOME_VAR}"
-    }
+      steps {
+        checkout scm
+        sh "echo ${SOME_VAR}"
+      }
+
     stage('prepare') {
-      sh "git clean -fdx"
+      steps {
+        sh "git clean -fdx"
+      }
     }
+
     stage('compile') {
-      sh "make build"
+      steps {
+        sh "make build"
+      }
     }
+
     stage('test') {
-      sh "make test"
+      steps {
+        sh "make test"
+      }
     }
+
     stage('package') {
-      sh "make package"
+      steps {
+        sh "make package"
+      }
     }
+
     stage('publish') {
-      sh "make publish"
+      steps {
+        sh "make publish"
+      }
     }
+
     stage('deploy') {
       when {
         branch 'production'
       }
 
-      sh "echo deploy!!!!!!!!!"
+      steps {
+        sh "echo deploy!!!!!!!!!"
+      }
     }
-  }  
+  }
 }
