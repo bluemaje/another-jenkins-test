@@ -30,11 +30,22 @@ pipeline {
       }
     }
 
-    stage('test') {
-      steps {
-        sh "make test"
+    stage('Tests') {
+      parallel {
+        stage('Integration') {
+          steps {
+            sh "make test"
+          }
+        }
+
+        stage('Unit') {
+          steps {
+            sh "make test"
+          }
+        }
       }
     }
+
 
     stage('package') {
       steps {
@@ -57,5 +68,6 @@ pipeline {
         sh "echo deploy!!!!!!!!!"
       }
     }
+
   }
 }
