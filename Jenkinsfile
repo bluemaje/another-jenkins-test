@@ -1,4 +1,6 @@
-node { 
+pipeline {
+  agent any
+
   options {
     timeout(time: 5, unit: 'MINUTES')
     ansiColor('xterm')
@@ -8,7 +10,7 @@ node {
     SOME_VAR = "hello"
   }
 
-  try {
+  stages {
     stage('checkout') {
       checkout scm
       sh "echo ${SOME_VAR}"
@@ -29,11 +31,11 @@ node {
       sh "make publish"
     }
     stage('deploy') {
+      when {
+        branch 'production'
+      }
+
       sh "echo deploy!!!!!!!!!"
     }
-  } finally {
-    stage('cleanup') {
-      echo "doing some cleanup..."
-    }
-  }
+  }  
 }
