@@ -4,6 +4,7 @@ pipeline {
   options {
     timeout(time: 5, unit: 'MINUTES')
     ansiColor('xterm')
+    timestamps()
   }
 
   environment {
