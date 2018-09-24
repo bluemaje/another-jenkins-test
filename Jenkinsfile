@@ -53,7 +53,6 @@ pipeline {
       }
     }
 
-
     stage('Package') {
       steps {
         sh "make package"
