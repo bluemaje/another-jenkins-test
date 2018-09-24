@@ -12,25 +12,25 @@ pipeline {
   }
 
   stages {
-    stage('checkout') {
+    stage('Checkout') {
       steps {
         checkout scm
         sh "echo ${SOME_VAR}"
       }
     }
 
-    stage('prepare') {
+    stage('Prepare') {
       steps {
         sh "git clean -fdx"
       }
     }
 
-    stage('compile') {
+    stage('Compile') {
       steps {
         sh "make build"
       }
     }
-    
+
     stage('Colours?') {
       steps {
         sh "make help"
@@ -54,19 +54,19 @@ pipeline {
     }
 
 
-    stage('package') {
+    stage('Package') {
       steps {
         sh "make package"
       }
     }
 
-    stage('publish') {
+    stage('Publish') {
       steps {
         sh "make publish"
       }
     }
 
-    stage('deploy') {
+    stage('Deploy') {
       when {
         branch 'production'
       }
