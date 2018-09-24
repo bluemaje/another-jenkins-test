@@ -2,7 +2,7 @@
 
 build: ## Compile all the things!!!
 	@echo "Every day I'm compilin'" \
-	env
+    env
 
 clean: ## Cleanup docker images, vendor libraries, temp files and compiled packages
 	@echo "are emm dash are eff star"
