@@ -1,8 +1,7 @@
 .PHONY: build clean help package publish test
 
 build: ## Compile all the things!!!
-	@echo "Every day I'm compilin'" && \
-    env
+	@echo "Every day I'm compilin'"
 
 clean: ## Cleanup docker images, vendor libraries, temp files and compiled packages
 	@echo "are emm dash are eff star"
